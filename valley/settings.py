@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-hp9opu6qcpj0r_hz@!yp_$+1-yys&ivj#=9fdooou0eu#a82_p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['159.223.123.223']
 
 
 # Application definition
@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'valley.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'valleydb',
+        'USER': 'valley_admin',
+        'PASSWORD': 'testing123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -124,9 +128,8 @@ MEDIA_URL= 'media/'
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
