@@ -5,7 +5,7 @@ from django.contrib import messages
 def index(request):
     # allpost=Post.objects.all
     post=Post.objects.all
-    recentpost=Post.objects.order_by('timestamp')[0:4]
+    recentpost=Post.objects.order_by('date')[0:4]
     context={
         'post':post,
         'recentpost':recentpost
