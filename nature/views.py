@@ -5,12 +5,12 @@ from django.contrib import messages
 def index(request):
     # allpost=Post.objects.all
     post=Post.objects.all
-    recentpost=Post.objects.order_by('-timestamp')[1:5]
-    post={
+    recentpost=Post.objects.order_by('timestamp')[0:4]
+    context={
         'post':post,
         'recentpost':recentpost
     }
-    return render(request,'index.html',post)
+    return render(request,'index.html',context)
 
 def blog(request):
     post=Post.objects.all
