@@ -16,17 +16,22 @@ def index(request):
 
 def blog(request):
     post=Post.objects.all
+    recentpost2=Post.objects.order_by('date')[0:3]
     post={
-        'post':post
+        'post':post,
+        'recentpost2':recentpost2,
     }
     return render(request,'blog.html',post)
 
 def post(request,slug):
     allpost=Post.objects.all
     post=Post.objects.filter(slug=slug)
+    recentpost2=Post.objects.order_by('date')[0:3]
+    
     post={
         'post':post,
-        'allpost':allpost
+        'allpost':allpost,
+        'recentpost2':recentpost2,
     }
     
     return render(request,'post.html',post)
@@ -34,50 +39,59 @@ def post(request,slug):
 def about(request):
     post=Post.objects.all
     recentpost=Post.objects.order_by('date')[0:4]
+    recentpost2=Post.objects.order_by('date')[0:3]
    
     post={
         'post':post,
-        'recentpost':recentpost
+        'recentpost':recentpost,
+        'recentpost2':recentpost2
         
     }
     return render(request,'about.html',post)
 
 def shop(request):
+    recentpost2=Post.objects.order_by('date')[0:3]
     shop=Shop.objects.all
 
     shop={
-        'shop':shop
+        'shop':shop,
+        'recentpost2':recentpost2
     }
     return render(request,'shop.html',shop) 
 
 
 def fitness(request):
     post=Post.objects.all
+    recentpost2=Post.objects.order_by('date')[0:3]
    
     post={
         'post':post,
+        'recentpost2':recentpost2
         
     }
     return render(request,'fitness.html',post)
 
 def productview(request,slug):
     shop=Shop.objects.filter(slug=slug)
-
+    recentpost2=Post.objects.order_by('date')[0:3]
     shop={
-        'shop':shop
+        'shop':shop,
+        'recentpost2':recentpost2
     }
     return render(request,'productview.html',shop)  
 
 def park(request):
     post=Post.objects.all
-   
+    recentpost2=Post.objects.order_by('date')[0:3]
     post={
         'post':post,
+        'recentpost2':recentpost2
         
     }
     return render(request,'park.html',post) 
 
 def search(request):
+    recentpost2=Post.objects.order_by('date')[0:3]
     query=request.GET['query']
    
     post=Post.objects.filter(desc__icontains=query)
@@ -87,7 +101,9 @@ def search(request):
     post=Post.objects.filter(slug__icontains=query)
 
     post={
-        'post':post
+        'post':post,
+        'recentpost2':recentpost2
+        
     }
     return render(request,'search.html',post)
 
