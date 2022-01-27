@@ -6,9 +6,11 @@ def index(request):
     # allpost=Post.objects.all
     post=Post.objects.all
     recentpost=Post.objects.order_by('date')[1:3]
+    latest=Post.objects.order_by('-date')[0:4]
     recentpost2=Post.objects.order_by('date')[0:3]
     context={
         'post':post,
+        'latest':latest
         'recentpost':recentpost,
         'recentpost2':recentpost2,
     }
