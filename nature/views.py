@@ -62,11 +62,13 @@ def shop(request):
 
 def fitness(request):
     post=Post.objects.all
+    recentpost=Post.objects.order_by('date')[0:4]
     recentpost2=Post.objects.order_by('date')[0:3]
    
     post={
         'post':post,
-        'recentpost2':recentpost2
+        'recentpost2':recentpost2,
+        'recentpost':recentpost,
         
     }
     return render(request,'fitness.html',post)
@@ -82,10 +84,13 @@ def productview(request,slug):
 
 def park(request):
     post=Post.objects.all
+    recentpost=Post.objects.order_by('date')[0:4]
     recentpost2=Post.objects.order_by('date')[0:3]
     post={
         'post':post,
-        'recentpost2':recentpost2
+        'recentpost2':recentpost2,
+        'recentpost':recentpost,
+        
         
     }
     return render(request,'park.html',post) 
