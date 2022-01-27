@@ -225,7 +225,7 @@
                             <div class="portfolio-item-holder  greennature-portfolio-column-4">
                                 <div class="greennature-isotope" data-type="portfolio" data-layout="fitRows">
                                     <div class="clear"></div>
-                                    {%for i in post %}
+                                    {%for i in recentpost %}
                                     <div class="three columns">
 
                                        
@@ -251,7 +251,7 @@
                                                                 rel="tag">Renewable Energy</a></div> -->
                                                         <div class="clear"></div>
                                                     </div>
-                                                    <div class="portfolio-excerpt">{{i.desc}}..
+                                                    <div class="portfolio-excerpt">{{i.desc|slice:"1:100"}}..
                                                         <a href="/post/{{i.slug}}">Read More</a>
                                                         <div class="clear"></div><a
                                                             href="/post/first-post"
