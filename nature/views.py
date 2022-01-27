@@ -6,9 +6,11 @@ def index(request):
     # allpost=Post.objects.all
     post=Post.objects.all
     recentpost=Post.objects.order_by('date')[0:4]
+    recentpost2=Post.objects.order_by('date')[0:3]
     context={
         'post':post,
-        'recentpost':recentpost
+        'recentpost':recentpost,
+        'recentpost2':recentpost2,
     }
     return render(request,'index.html',context)
 
@@ -31,9 +33,11 @@ def post(request,slug):
 
 def about(request):
     post=Post.objects.all
+    recentpost=Post.objects.order_by('date')[0:4]
    
     post={
         'post':post,
+        'recentpost':recentpost
         
     }
     return render(request,'about.html',post)
