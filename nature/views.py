@@ -3,7 +3,6 @@ from .models import Post,Shop
 from django.contrib import messages
 
 def index(request):
-    # allpost=Post.objects.all
     query=Post.objects.all
     context={
         'query':query,
