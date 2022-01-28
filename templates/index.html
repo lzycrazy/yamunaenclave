@@ -374,20 +374,20 @@
                             <div class="portfolio-item-holder  greennature-portfolio-column-4">
                                 <div class="greennature-isotope" data-type="portfolio" data-layout="fitRows">
                                     <div class="clear"></div>
-                                    {% for i in query %}
+                                    {% for s in query %}
                                     <div class="three columns">
                                         <div
                                             class="greennature-item greennature-portfolio-item greennature-classic-portfolio">
                                             <div class="greennature-ux greennature-classic-portfolio-ux">
                                                 <div class="portfolio-thumbnail greennature-image"><img
-                                                        src="/media/{{i.image}}" alt="" width="540" height="500" /><span
+                                                        src="/media/{{s.image}}" alt="" width="540" height="500" /><span
                                                         class="portfolio-overlay">&nbsp;</span><a
                                                         class="portfolio-overlay-icon" href="/post/{{i.slug}}"
                                                         data-rel="fancybox"><span class="portfolio-icon"><i
                                                                 class="fa fa-search"></i></span></a></div>
                                                 <div class="portfolio-classic-content">
                                                     <h3 class="portfolio-title"><a
-                                                            href="/post/{{i.slug}}">{{i.title}}</a></h3>
+                                                            href="/post/{{s.slug}}">{{s.title}}</a></h3>
                                                     <div class="greennature-portfolio-info">
                                                         <!-- <div class="portfolio-info portfolio-tag"><span
                                                                 class="info-head greennature-title">Tags
@@ -398,8 +398,8 @@
                                                                 rel="tag">Renewable Energy</a></div> -->
                                                         <div class="clear"></div>
                                                     </div>
-                                                    <div class="portfolio-excerpt">{{i.desc|slice:"1:100"}}..
-                                                        <a href="/post/{{i.slug}}">Read More</a>
+                                                    <div class="portfolio-excerpt">{{s.desc|slice:"1:100"}}..
+                                                        <a href="/post/{{s.slug}}">Read More</a>
                                                         <!-- <div class="clear"></div><a href="/post/first-post"
                                                             class="excerpt-read-more">Read More</a> -->
                                                     </div><a class="portfolio-classic-learn-more"
