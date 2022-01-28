@@ -4,11 +4,9 @@ from django.contrib import messages
 
 def index(request):
     # allpost=Post.objects.all
-    post=Post.objects.all
+    query=Post.objects.all
     context={
-        'post':post,
-        
-
+        'query':query,
     }
     return render(request,'index.html',context)
 
