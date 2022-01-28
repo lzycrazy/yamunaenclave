@@ -34,7 +34,7 @@ def post(request,slug):
     
     return render(request,'post.html',post)
 
-def savewater(request):
+def water(request):
     return render(request,'save_water.html')
 
 def solar_energy(request):
