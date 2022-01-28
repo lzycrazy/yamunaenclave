@@ -4,8 +4,10 @@ from django.contrib import messages
 
 def index(request):
     query=Post.objects.all
+    latest=Post.objects.order_by('date')[0:4]
     context={
         'query':query,
+        'latest':latest
     }
     return render(request,'index.html',context)
 
