@@ -5,7 +5,7 @@ from django.contrib import messages
 def index(request):
     # allpost=Post.objects.all
     post=Post.objects.all
-    recentpost=Post.objects.order_by('title')[0:6]
+    recentpost=Post.objects.order_by('date')[0:5]
     recentpost2=Post.objects.order_by('date')[0:3]
     context={
         'post':post,
@@ -15,13 +15,12 @@ def index(request):
     }
     return render(request,'index.html',context)
 
-
 def blog(request):
-    post=Post.objects.all
     recentpost2=Post.objects.order_by('date')[0:3]
+    post=Post.objects.all
     post={
         'post':post,
-        'recentpost2':recentpost2,
+        'recentpost2':recentpost2
     }
     return render(request,'blog.html',post)
 
@@ -29,32 +28,29 @@ def post(request,slug):
     allpost=Post.objects.all
     post=Post.objects.filter(slug=slug)
     recentpost2=Post.objects.order_by('date')[0:3]
-    
     post={
         'post':post,
         'allpost':allpost,
-        'recentpost2':recentpost2,
+        'recentpost2':recentpost2
     }
     
     return render(request,'post.html',post)
 
 def about(request):
     post=Post.objects.all
-    recentpost=Post.objects.order_by('date')[0:4]
     recentpost2=Post.objects.order_by('date')[0:3]
    
     post={
         'post':post,
-        'recentpost':recentpost,
         'recentpost2':recentpost2
+
         
     }
     return render(request,'about.html',post)
 
 def shop(request):
-    recentpost2=Post.objects.order_by('date')[0:3]
     shop=Shop.objects.all
-
+    recentpost2=Post.objects.order_by('date')[0:3]
     shop={
         'shop':shop,
         'recentpost2':recentpost2
@@ -63,15 +59,13 @@ def shop(request):
 
 
 def fitness(request):
-    post=Post.objects.all
     recentpost=Post.objects.order_by('date')[0:4]
+    post=Post.objects.all
     recentpost2=Post.objects.order_by('date')[0:3]
-   
     post={
         'post':post,
-        'recentpost2':recentpost2,
         'recentpost':recentpost,
-        
+        'recentpost2':recentpost2
     }
     return render(request,'fitness.html',post)
 
@@ -85,22 +79,19 @@ def productview(request,slug):
     return render(request,'productview.html',shop)  
 
 def park(request):
-    post=Post.objects.all
     recentpost=Post.objects.order_by('date')[0:4]
+    post=Post.objects.all
     recentpost2=Post.objects.order_by('date')[0:3]
     post={
         'post':post,
-        'recentpost2':recentpost2,
         'recentpost':recentpost,
-        
-        
+        'recentpost2':recentpost2
     }
     return render(request,'park.html',post) 
 
 def search(request):
-    recentpost2=Post.objects.order_by('date')[0:3]
     query=request.GET['query']
-   
+    recentpost2=Post.objects.order_by('date')[0:3]
     post=Post.objects.filter(desc__icontains=query)
     post=Post.objects.filter(name__icontains=query)
     
@@ -110,7 +101,6 @@ def search(request):
     post={
         'post':post,
         'recentpost2':recentpost2
-        
     }
     return render(request,'search.html',post)
 
