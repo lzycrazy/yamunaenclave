@@ -13,6 +13,7 @@ urlpatterns = [
     path('services/park',views.park,name='park'),
     # path('service',views.service,name='service'),
     path('search',views.search,name='search'),
+    path('water',views.water,name='water'),
    
   
      
