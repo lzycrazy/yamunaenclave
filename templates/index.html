@@ -890,8 +890,8 @@
             <div class="greennature-subscribe-item greennature-item">
                 <div class="greennature-newsletter-subscribe">
                     <div class="newsletter newsletter-subscription">
-                        <form method="post" action="https://demo.goodlayers.com/greennature/?na=s"
-                            onsubmit="return newsletter_check(this)">
+                        <form method="post" action="."
+                            onsubmit="return newsletter_check(this)">{% csrf_token %}
                             <input class="newsletter-email" type="email" name="ne" size="30"
                                 required placeholder="Please fill your email" />
                             <input class="newsletter-submit greennature-button" type="submit"
