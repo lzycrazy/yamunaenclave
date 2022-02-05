@@ -23,3 +23,13 @@ class Shop(models.Model):
 
     def __str__(self):
         return self.name
+
+    
+    
+class Singup(models.Model):
+    email = models.EmailField()    
+    
+    
+    
+    
+    
