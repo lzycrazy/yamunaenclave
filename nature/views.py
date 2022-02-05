@@ -5,6 +5,12 @@ from django.contrib import messages
 def index(request):
     query=Post.objects.all
     latest = Post.objects.order_by('date')[0:4]
+    if request.method =='POST':
+        email = request.POST['email']
+        new_signup = Singup()
+        new_signup.email = email
+        new_signup.save()
+        
     context={
         'query':query,
         'latest':latest
